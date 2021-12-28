@@ -1,0 +1,258 @@
+{% include 'header.html' %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title justify-content-center">
+                                <i class="fas fa-bullhorn"></i>
+                                DIAGNOSIS PENYAKIT GIGI MENGGUNAKAN KNN
+                            </h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="card-body">
+                                <!-- TABLE TEMP. JANGAN LUPA D COMMENT -->
+                                <table class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <h5>
+                                                TEMP KELUHAN 1
+                                            </h5>
+                                        </tr>
+                                        <tr style="text-align: center;">
+                                            <th style="width: 100px">No.</th>
+                                            <th style="text-align: center;width: 200px;">Nama Pasien</th>
+                                            <th style="text-align: center;">Gejala Pasien</th>
+                                            <th>Hasil Diagnosis</th>
+                                    </thead>
+                                    <tbody>
+                                        {% for rs in c %}
+                                        <tr>
+                                            <td style="width: 100px; text-align: center;">{{ loop.index }}</td>
+                                            <td style="text-align: center;width: 200px;">{{ rs.0 }}</td>
+                                            <td style="text-align: center; width: 1200px;">{{ rs.1 }}</td>
+                                            <td style="text-align: center;width: 150px;">{{ rs.2 }}</td>
+                                          </tr>
+                                        {% else %}
+                                        <tr>
+                                            <td colspan="3">Unbelievable. No entries here so far</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                <br>
+                                <!-- TABEL PERTAMA -->
+                                <table class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <h5>
+                                                5 Data Preview Riwayat Pasien (hanya preview, semua data akan diolah)
+                                            </h5>
+                                        </tr>
+                                        <tr style="text-align: center;">
+                                            <th style="width: 100px">No.</th>
+                                            <th style="text-align: center;width: 200px;">Nama Pasien</th>
+                                            <th style="text-align: center;">Gejala Pasien</th>
+                                            <th>Hasil Diagnosis</th>
+                                    </thead>
+                                    <tbody>
+                                        {% for rs in data %}
+                                        <tr>
+                                            <td style="width: 100px; text-align: center;">{{ loop.index }}</td>
+                                            <td style="text-align: center;width: 200px;">{{ rs.0 }}</td>
+                                            <td style="text-align: center; width: 1200px;">{{ rs.1 }}</td>
+                                            <td style="text-align: center;width: 150px;">{{ rs.2 }}</td>
+                                          </tr>
+                                        {% else %}
+                                        <tr>
+                                            <td colspan="3">Unbelievable. No entries here so far</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                <br>
+                                <!-- TABEL KEDUA -->
+                                <table class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <h5>
+                                                <i>Min-Max Table Value</i>
+                                            </h5>
+                                        </tr>
+                                        <tr>
+                                            <th style="width: 50px; text-align: center;">No.</th>
+                                            <th style="text-align: center;">Nama Gejala</th>
+                                            <th style="text-align: center">Nilai CF tertinggi (MAX)</th>
+                                            <th style="text-align: center">Nilai CF tertinggi (MIN)</th>
+                                            <th style="text-align: center">Total Gejala</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for rs in datamm %}
+                                        <tr>
+                                            <td style="width: 50px; text-align: center;">{{ loop.index }}</td>
+                                            <td style="text-align: center;">{{ rs.0 }}</td>
+                                            <td style="text-align: center;">{{ rs.1 }}</td>
+                                            <td style="text-align: center;">{{ rs.2 }}</td>
+                                            <td style="text-align: center;">{{ rs.3 }}</td>
+                                        </tr>
+                                        {% else %}
+                                        <tr>
+                                            <td colspan="4">Unbelievable. No entries here so far</td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                                <br>
+
+                                <!-- TABEL KETIGA -->
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <h5>Data Training Riwayat Pasien (Updated)</h5>
+                                        </tr>
+                                        <tr>
+                                            <th style="text-align: center;">Nama Pasien</th>
+                                            <th style="text-align: center">Jarak Euclidean</th>
+                                            <th style="text-align: center">Diagnosis Penyakit</th>
+                                        </tr>
+                                    </thead>
+                                {% set paket = [] %} 
+                                {% set NotFinalPasien = [] %}
+                                {% set FinalPasien = [] %}
+                                {% set FinalEuclidean = [] %}
+                                {% set FinalPenyakit = [] %}
+                                {% for p in pasien %}
+                                {% set gejalabeda = [] %}
+                                {% set penyakitpasien = [] %}
+                                {% set gejalabedaK = [] %}
+                                {% set filteredgejala = [] %}
+                                {% set normgejalasama = [] %}
+                                {% set normgejalabeda = [] %}
+                                {% set normgejalabedaK = [] %}
+                                {% set gejalasama = [] %}
+                                {% set allgejalaTrain = [] %}
+                                {% set allgejalaSamlpe = [] %}
+                                {% set normallgejalaSamlpe = [] %}
+                                {% set allgejala = [] %}
+                                {% set allnorm = [] %}
+                                {% for k in k3 %}
+                                {% endfor %}
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align: center; width: 400px;">{{ p.0 }}</td>
+                                                {% for rm in r3 %}
+                                                <!-- COCOKIN ORG SAMA -->
+                                                    {% if p.0 == rm.0 %}   
+                                                        {% set fp =  NotFinalPasien.append(p.0) %}
+                                                        {% for k in k3 %}
+                                                            {% if rm.1 == k.0 %} 
+                                                                {% set norm = 0 %}
+                                                                {% set norm = ((rm.5-k.4)**2) %}
+                                                                {% set kk = normgejalasama.append(norm) %}
+                                                                {% set ap = gejalasama.append(rm.1) %}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                        {% if rm.1 not in gejalasama %}
+                                                            {% set normB = 0 %}
+                                                            {% set normB = ((rm.5)**2) %}
+                                                            {% set km = normgejalabeda.append(normB) %}
+                                                            {% set al =  gejalabeda.append(rm.1) %}
+                                                        {% endif %}
+                                                    {% set ps =  penyakitpasien.append(rm.6) %}
+                                                    {% endif %}
+                                                {% endfor %}
+                                            {% for gejala in k3 if gejala.0 not in gejalasama %}
+                                                {% set normB = 0 %}
+                                                {% set normB = ((gejala.4)**2) %}
+                                                {% set kri = normgejalabedaK.append(normB) %}
+                                                {% set as =  gejalabedaK.append(gejala.0) %}
+                                            {% endfor %} 
+                                            {% set allgejala = gejalabeda + gejalabedaK +gejalasama %}
+                                            {% set allnorm = normgejalabeda + normgejalabedaK +normgejalasama %}
+                                            <td style="text-align: center;">{{ (allnorm|sum)**(1/2) }}</td>
+                                            {% set euclid = (allnorm|sum)**(1/2) %} 
+                                            {% set fp =  FinalEuclidean.append(euclid) %}
+                                            <td style="text-align: center;">{{ penyakitpasien[0] }}</td>
+                                            {% set pps =  FinalPenyakit.append(penyakitpasien[0]) %}
+                                        </tr>
+                                {% else %}
+                                        <tr>
+                                            <td style="text-align: center;" colspan="3">Unbelievable. No entries here so far</td>
+                                        </tr>
+                                    </tbody>
+                                {% endfor %}
+                                </table>
+                                <br>
+                                {% set FinalPasien = NotFinalPasien|unique|list %}
+                                {% set dataterendah = [] %}
+                                {% set penyakitterendah = [] %}
+                                {% for e in FinalEuclidean|unique|sort %}
+                                    {% if loop.index < 7 %}
+                                        {% set lo = dataterendah.append(e) %}
+                                    {% endif %}
+                                {% endfor %}
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <h5>
+                                                K=6
+                                            </h5>
+                                            <h5>
+                                                Value Euclidean Terdekat
+                                            </h5>
+                                        </tr>
+                                        <tr style="text-align: center;">
+                                            <th>
+                                                    Nilai Euclidean
+                                            </th>
+                                            <th>
+                                                    Nama Penyakit
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for f in FinalEuclidean %}
+                                            {% if f in dataterendah  %}
+                                            <tr style="text-align: center;">
+                                                <td>
+                                                    {{ f }}
+                                                </td>
+                                                <td>
+                                                    {{ FinalPenyakit[loop.index0] }}
+                                                    {% set kkk = penyakitterendah.append(FinalPenyakit[loop.index0]) %}
+                                                </td>
+                                                {% endif %}
+                                        {% endfor %}
+                                            </tr>
+                                            <tr>
+                                                <td colspan="2" style="text-align: center;">
+                                                Berdasarkan penyakit banyak, maka diagnosis penyakitnya ialah <b> {{ penyakitterendah }} </b>
+                                                </td>
+                                            </td>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class= "modal-footer justify-content-center">
+                                <a type=" button" class="btn bg-gradient-primary btn-lg" href="/iniDiagnosis">Kembali ke Diagnosis Penyakit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+{% include 'footer.html' %}

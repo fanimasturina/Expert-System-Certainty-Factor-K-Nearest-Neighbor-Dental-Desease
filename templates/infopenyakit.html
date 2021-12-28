@@ -1,0 +1,140 @@
+{% include 'header.html' %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title"> <i class="nav-icon fas fa-tooth"></i> Informasi Penyakit Gigi dan Mulut</h3>
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Info Penyakit</li>
+              </ol>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th style="width: 10px; text-align: center;">No.</th>
+                    <th style="text-align: center;">Kode Penyakit</th>
+                    <th style="text-align: center; width: 180px;">Nama Penyakit</th>
+                    <th>Definisi Penyakit</th>
+                    <th>Solusi Pengobatan</th>
+                    {% if username is defined %}
+                    <th style="text-align: center; width: 180px;">Actions</th>
+                    {% endif %}
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for rs in data %}
+                  <tr>
+                    <td style="text-align: center;">{{ loop.index }}</td>
+                    <td style="text-align: center;">{{ rs.0 }}</td>
+                    <td style="text-align: center;">{{ rs.1 }}</td>
+                    <td>{{ rs.3 }}</td>
+                    <td>{{ rs.2 }}</td>
+                    {% if username is defined %}
+                    <td style="align-items: center;">
+                      <a href="#!" class="btn btn-warning btn" data-toggle="modal"
+                        data-target="#modalEdit{{ rs.0 }}">Edit</a>
+                      <button type="button" class="btn btn-danger" data-toggle="modal"
+                        data-target="#modal-danger{{ rs.0 }}">
+                        Delete
+                      </button>
+                    </td>
+                    {% endif %}
+                  </tr>
+                  <div>
+                    <!-- MODAL DELETE BUTTON -->
+                    <div id="modal-danger{{ rs.0 }}" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
+                        <div class="modal-content bg-danger">
+                          <div class="modal-header">
+                            <h4 class="modal-title">Konfirmasi Hapus</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <p>Apakah anda yakin untuk menghapus penyakit {{ rs.1 }}?&hellip;</p>
+                          </div>
+                          <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                            <a href="/hapusPenyakit/{{ rs.0 }}" type="button" class="btn btn-outline-light">Hapus</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- MODAL EDIT BUTTON -->
+                    <div id="modalEdit{{ rs.0 }}" class="modal fade" role="dialog">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h4 class="modal-title">Edit Penyakit</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form action="{{ url_for('updatePenyakit') }}" method="POST">
+                              <div class="form-group">
+                                <label for="namaPenyakit">Nama Penyakit</label>
+                                <input type="hidden" name="np1" value="{{ rs.1 }}">
+                                <input type="text" class="form-control" id="namaPenyakit" name="namaPenyakit"
+                                  value="{{ rs.1 }}">
+
+                                <label for="definisPenyakit">Definisi Penyakit</label>
+                                <input type="hidden" name="np2" value="{{ rs.3 }}">
+                                <input type="text" class="form-control" id="definisPenyakit" name="definisPenyakit"
+                                  value="{{ rs.3 }}">
+
+                                <label for="solusiPenyakit">Solusi Penyakit</label>
+                                <input type="hidden" name="np3" value="{{ rs.2 }}">
+                                <input type="text" class="form-control" id="solusiPenyakit" name="solusiPenyakit"
+                                  value="{{ rs.2 }}">
+                              </div>
+                              <div class="modal-footer justify-content-between form-group">
+                                <button type=" button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button class="btn btn-warning" type="submit">Save Changes</button>
+                              </div>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% else %}
+                  <tr>
+                    <td colspan="3">Unbelievable. No entries here so far</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer clearfix">
+              <ul class="pagination pagination-sm m-0 float-right">
+                <!-- JANGAN LUPA TAMBAHIN BUTTON ADD -->
+              </ul>
+            </div>
+          </div>
+          <!-- /.card -->
+
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+{% include 'footer.html' %}
