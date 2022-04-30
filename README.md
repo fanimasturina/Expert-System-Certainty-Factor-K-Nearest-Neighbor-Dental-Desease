@@ -6,8 +6,9 @@ How to run the app on local:
 
 
 2.	import database on mySQL. Its name is "essks" (it is in this folder, in unzip first). The quickest way to open a database is to click "Admin" on the mysql section of XAMPP.
-<img width="331" alt="image" src="https://user-images.githubusercontent.com/71430949/166093362-c2af7eb9-5031-4668-937d-f2d2f2678190.png">
- <img width="438" alt="image" src="https://user-images.githubusercontent.com/71430949/166093297-fa30ec3b-751f-4166-8710-e7218cf96f98.png">
+<img width="331" alt="image" src="https://user-images.githubusercontent.com/71430949/166093395-6b25e260-b32c-4330-bae1-1c1367aff0c0.png">
+<img width="438" alt="image" src="https://user-images.githubusercontent.com/71430949/166093297-fa30ec3b-751f-4166-8710-e7218cf96f98.png">
+
 
 3.	open Visual Studio Code, then import this folder by "open folder" (not open file). 
 <img width="165" alt="image" src="https://user-images.githubusercontent.com/71430949/166093301-dbbf8ead-5542-410c-b16a-2af112f1e1d7.png">
