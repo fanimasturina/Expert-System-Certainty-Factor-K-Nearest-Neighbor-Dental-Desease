@@ -1,0 +1,112 @@
+{% include 'header.html' %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-3 col-6">
+          <!-- small card -->
+          <div class="small-box bg-info">
+            <div class="inner">
+              {% set c = 0 %}
+              {% for d in p %}
+                {% set c = loop.length %}
+                {% if loop.last is true %}
+                    <h3>{{ c }}</h3>
+                {% endif %}
+              {% endfor %}
+              <p>Penyakit Gigi</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-tooth"></i>
+            </div>
+            <a href="/infopenyakit" class="small-box-footer">
+              More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+          <!-- small card -->
+          <div class="small-box bg-success">
+            <div class="inner">
+              {% set c = 0 %}
+              {% for d in g %}
+                {% set c = loop.length %}
+                {% if loop.last is true %}
+                    <h3>{{ c }}</h3>
+                {% endif %}
+              {% endfor %}
+              <p>Gejala Penyakit</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-microscope"></i>
+            </div>
+            <a href="/infogejala" class="small-box-footer">
+              More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+          <!-- small card -->
+          <div class="small-box bg-warning">
+            <div class="inner">
+              {% set c = 0 %}
+              {% for d in r %}
+                {% set c = loop.length %}
+                {% if loop.last is true %}
+                    <h3>{{ c }}</h3>
+                {% endif %}
+              {% endfor %}
+              <p>Basis Pengetahuan</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-book-medical"></i>
+            </div>
+            <a href="/basispengetahuan" class="small-box-footer">
+              More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        <!-- ./col -->
+        <div class="col-lg-3 col-6">
+          <!-- small card -->
+          <div class="small-box bg-danger">
+            <div class="inner">
+              {% set c = 0 %}
+              {% for d in rm %}
+                {% set c = loop.length %}
+                {% if loop.last is true %}
+                    <h3>{{ c }}</h3>
+                {% endif %}
+              {% endfor %}
+              <p>Riwayat Pasien</p>
+            </div>
+            <div class="icon">
+              <i class="fas fas fa-hospital-user"></i>
+            </div>
+            <a href="/riwayatpasien" class="small-box-footer">
+              More info <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        <!-- ./col -->
+      </div>
+      <div style="max-width: 1800px; position: relative; margin: auto;">
+        <img type="image" style="width: 100%;" src="{{ url_for('static', filename='dist/img/buaya.png') }}"
+            alt="User Image" href="/diagnosispenyakit">
+      </div>
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+{% include 'footer.html' %}

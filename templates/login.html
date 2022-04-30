@@ -1,0 +1,64 @@
+{% include 'header.html' %}
+<div class="content-wrapper">
+    <div class="content-header">
+        <div class="row justify-content-center container-fluid">
+            <div class="login-box">
+                <div class="card card-outline card-primary">
+                    <div class="card-header text-center">
+                        <a href="" class="h1"><b>Dia-Dental Pro</b></a>
+                    </div>
+                    <!-- /.login-logo -->
+                    <div class="card">
+                        <div class="card-body login-card-body">
+                            <p class="login-box-msg">Sign in to start your session</p>
+                            <p class="login-box-msg">
+                                {% if msg != '' %}
+                                <b style="color: red;">{{ msg }}</b>
+                                {% endif %}
+                            </p>
+                            <form action="{{ url_for('login') }}" method="post">
+                                <div class="input-group mb-3">
+                                    <input type="text" name="username" class="form-control" placeholder="Username"
+                                        required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-user-tie"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <input type="password" name="password" class="form-control" id="inputPassword"
+                                        placeholder="Password" required>
+                                    <div class="input-group-append">
+                                        <div class="input-group-text">
+                                            <span class="fas fa-lock"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-8">
+                                    </div>
+                                    <br>
+                                    <div class="col-4">
+                                        <button type="submit" class="btn btn-primary btn-block" data-toggle="modal"
+                                            data-target="#modal-danger">Sign In</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+{% include 'footer.html' %}

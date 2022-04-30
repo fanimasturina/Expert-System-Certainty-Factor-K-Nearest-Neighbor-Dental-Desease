@@ -1,0 +1,63 @@
+{% include 'header.html' %}
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-12">
+          <div class="card">
+            <div class="card-header">
+              <h3 class="card-title">  <i class="nav-icon fas fa-hospital-user""></i> Data Rekam Medis Pasien</h3>
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item active">List View</li>
+                <li class="breadcrumb-item"><a href="riwayatpasien2">Data View</a></li>
+              </ol>
+            </div>
+            <!-- /.card-header -->
+            <div class= "card-body table-responsive p-0"> 
+              <table style="table-layout:fixed;" class="table table-head-fixed">
+                <thead>
+                  <tr style="text-align: center;">
+                    <th style="width: 100px">No.</th>
+                    <th style="text-align: center;width: 400px;">Nama Pasien</th>
+                    <th style="text-align: center;">Gejala Pasien</th>
+                    <th>Hasil Diagnosis</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  {% for rs in data %}
+                  <tr>
+                    <td style="width: 100px; text-align: center;">{{ loop.index }}</td>
+                    <td style="text-align: center;width: 400px;">{{ rs.0 }}</td>
+                    <td style="text-align: center; width: 1200px;">{{ rs.1 }}</td>
+                    <td style="text-align: center;width: 150px;">{{ rs.2 }}</td>
+                  </tr>
+                  {% endfor %}
+
+                </tbody>
+              </table>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer clearfix">
+              <ul class="pagination pagination-sm m-0 float-right">
+                <!-- <a href="tambahgejala" target="_blank">Tambah Gejala</a> -->
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+    </div><!-- /.container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+{% include 'footer.html' %}

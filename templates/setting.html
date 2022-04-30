@@ -1,0 +1,172 @@
+{% include 'header.html' %}
+<div class="content-wrapper">
+  <div class="content-header" style="text-align: center;">
+    <div class="col-12" id="accordion">
+      <br>
+      <br>
+
+      <section class="content">
+        <div class="row">
+          <d<div class="row justify-content-center container-fluid">
+            <!-- /.login-logo -->
+            <div class="card card-primary">
+              <div class="card-header">
+                <h3 class="card-title">
+                  <h3><b>Add New Account</b></h3>
+                </h3>
+              </div>
+              <div class="card-body login-card-body">
+                <p class="login-box-msg">Add a new doctor account as a user</p>
+                <p>
+                  {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                  <b class=flashes>
+                    {% for message in messages %}
+                    <b style="color: red;">{{ message }}</b>
+                    {% endfor %}
+                  </b>
+                  {% endif %}
+                  {% endwith %}
+                </p>
+                <form action="{{ url_for('setting') }}" method="post">
+                  <div class="input-group mb-3">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-user-tie"></span>
+                      </div>
+                    </div>
+                    <input type="text" name="username" class="form-control" placeholder="Username" required>
+                  </div>
+                  <div class="input-group mb-3">
+                    <div class="input-group-append">
+                      <div class="input-group-text">
+                        <span class="fas fa-lock"></span>
+                      </div>
+                    </div>
+                    <input type="password" name="password" class="form-control" id="inputPassword"
+                      placeholder="Password" required>
+                  </div>
+                  <div class="row">
+                    <div class="col-8">
+                    </div>
+                    <br>
+                    <div class="col-4">
+                      <button type="submit" class="btn btn-success btn-block" data-toggle="modal"
+                        data-target="#modal-danger">Add New</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="card card-secondary">
+                <div class="card-header">
+                  <h3 class="card-title">
+                    <h3><b>List Dokter & Admin</b></h3>
+                  </h3>
+                </div>
+                <div class="card-body">
+                  <table class="table table-head-fixed text-nowrap">
+                    <thead>
+                      <tr>
+                        <th style="width: 10px">No.</th>
+                        <th style="text-align: center;">Username</th>
+                        <th>Password</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {% for rs in data %}
+                      <tr>
+                        <td>{{ loop.index }}</td>
+                        <td style="text-align: center;">{{ rs.1 }}</td>
+                        <td>{{ rs.2 }}</td>
+                        <td style="align-items: center;">
+                          <a href="#!" class="btn btn-warning btn" data-toggle="modal"
+                            data-target="#modalEdit{{ rs.0 }}">Edit</a>
+                          <button type="button" class="btn btn-danger" data-toggle="modal"
+                            data-target="#modal-danger{{ rs.0 }}">
+                            Delete
+                          </button>
+                        </td>
+                      </tr>
+                      <div>
+                        <!-- MODAL DELETE BUTTON -->
+                        <div id="modal-danger{{ rs.0 }}" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+                            <div class="modal-content bg-danger">
+                              <div class="modal-header">
+                                <h4 class="modal-title">Konfirmasi Hapus</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <p>Apakah anda yakin untuk menghapus user {{ rs.1 }}?</p>
+                              </div>
+                              <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-outline-light" data-dismiss="modal">Close</button>
+                                <a href="/hapusUser/{{ rs.0 }}" type="button" class="btn btn-outline-light">Hapus</a>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- MODAL EDIT BUTTON -->
+                        <div id="modalEdit{{ rs.0 }}" class="modal fade" role="dialog">
+                          <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h4 class="modal-title">Edit User</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <form action="{{ url_for('updateUser') }}" method="POST">
+                                  <div class="form-group">
+                                    <label>Username</label>
+                                    <input type="hidden" name="np1" value="{{ rs.1 }}">
+                                    <input type="text" class="form-control" id="uname" name="uname" value="{{ rs.1 }}">
+                                    <label>Passowrd</label>
+                                    <input type="hidden" name="np2" value="{{ rs.2 }}">
+                                    <input type="text" class="form-control" id="passw" name="passw" value="{{ rs.2 }}">
+                                  </div>
+                                  <div class="modal-footer justify-content-between form-group">
+                                    <button type=" button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    <button class="btn btn-warning" type="submit">Save Changes</button>
+                                  </div>
+                                </form>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      {% else %}
+                      <tr>
+                        <td colspan="3">Unbelievable. No entries here so far</td>
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+                <!-- /.card-body -->
+              </div>
+              <!-- /.card -->
+            </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div><!-- /.container-fluid -->
+</div>
+<!-- /.content-header -->
+<!-- Main content -->
+<section class="content">
+  <div class="container-fluid">
+  </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+{% include 'footer.html' %}
