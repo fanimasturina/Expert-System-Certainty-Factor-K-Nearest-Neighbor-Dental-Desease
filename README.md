@@ -6,7 +6,7 @@ How to run the app on local:
 
 
 2.	import database on mySQL. Its name is "essks" (it is in this folder, in unzip first). The quickest way to open a database is to click "Admin" on the mysql section of XAMPP.
-<img width="331" alt="image" src="https://user-images.githubusercontent.com/71430949/166093395-6b25e260-b32c-4330-bae1-1c1367aff0c0.png">
+<img width="399" alt="image" src="https://user-images.githubusercontent.com/71430949/166093420-fcd531e4-bf9c-475d-b933-0e1273562087.png">
 <img width="438" alt="image" src="https://user-images.githubusercontent.com/71430949/166093297-fa30ec3b-751f-4166-8710-e7218cf96f98.png">
 
 
