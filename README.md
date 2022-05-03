@@ -37,3 +37,6 @@ The preview of an app:
 <img width="410" alt="image" src="https://user-images.githubusercontent.com/71430949/166482114-11e2644e-c34a-4473-9eeb-ca4de9e88a48.png">
 <img width="410" alt="image" src="https://user-images.githubusercontent.com/71430949/166482130-e84259f1-1bab-4269-a0eb-f077edbe6be4.png">
 
+To read more about the projects:
+- Working paper: https://github.com/fanimasturina/Expert-System-Certainty-Factor-K-Nearest-Neighbor-Dental-Desease/blob/main/Working-Paper_2001573676.doc
+- Jurnal Ilmiah: https://github.com/fanimasturina/Expert-System-Certainty-Factor-K-Nearest-Neighbor-Dental-Desease/blob/main/Jurnal-Ilmiah_2001573676.doc
