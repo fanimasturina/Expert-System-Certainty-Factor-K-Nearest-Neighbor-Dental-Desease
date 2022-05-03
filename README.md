@@ -1,4 +1,4 @@
-# Dental-Disease-Diagnosis-Expert-System-CF-KNN
+# EXPERT SYSTEM DESIGN FOR DIAGNOSIS OF DENTAL DISEASES USING THE K-NEAREST NEIGHBOR AND CERTAINTY FACTOR METHODS
 
 How to run the app on local:
 1.	Download XAMPP, make sure the mySQL setting is on the way. (Turn on mysql and apache)
