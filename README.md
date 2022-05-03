@@ -7,7 +7,7 @@ How to run the app on local: https://github.com/fanimasturina/Expert-System-Cert
 
 The preview of an app:
 1. Homepage
-<img width="410" alt="image" src="https://user-images.githubusercontent.com/71430949/166481166-c2bd1b68-5198-4d1e-8012-56a32eef7238.png">
+<img width="410" class="center" alt="image" src="https://user-images.githubusercontent.com/71430949/166481166-c2bd1b68-5198-4d1e-8012-56a32eef7238.png">
 
 2. Disease Info Page
 <img width="410" alt="image" src="https://user-images.githubusercontent.com/71430949/166481288-e931555e-2893-479b-bfb1-6958950d2f7c.png">
