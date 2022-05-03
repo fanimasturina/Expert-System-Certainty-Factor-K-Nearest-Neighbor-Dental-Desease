@@ -1,5 +1,8 @@
 # EXPERT SYSTEM DESIGN FOR DIAGNOSIS OF DENTAL DISEASES USING THE K-NEAREST NEIGHBOR AND CERTAINTY FACTOR METHODS
 
+I build an expert system design that applies a combination of Certainty Factor and K-Nearest Neighbor methods in solving problems of diagnosing dental diseases (especially for teledentistry). The expert system is website-based (using Jinja 3.0 and Bootstrap AdminLTE.io) and uses MySQL. 
+The application provides an accuracy of 80% in the Certainty factor-only method using result validation and the combined accuracy of the Certainty Factor - K Nearest Neighbor method of 90% using Cross Validation (to see the calculation of 90% accuracy: https://github.com/fanimasturina/CF-KNN-Accuracy-Using-Jupyter-Notebook). The dataset is used on combination methods to serves the neighbor classification, the detail of dataset is consist of 100 patients medical records (name, certainty value of symptomps, and diagnosis).  
+
 How to run the app on local:
 1.	Download XAMPP, make sure the mySQL setting is on the way. (Turn on mysql and apache)
 <img width="331" alt="image" src="https://user-images.githubusercontent.com/71430949/166093351-1057c6c6-cbb5-4365-a5a1-638f44c2f0f9.png">
